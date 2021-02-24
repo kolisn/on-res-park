@@ -3,7 +3,9 @@
 
 
 Instructions:
+
 *npm install* to prepare the project
+
 *npm start* to run the module
 
 
