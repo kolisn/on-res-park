@@ -61,7 +61,6 @@ const prompts = require("prompts");
       return outArr;
     });
 
-    console.log("elements", calendarTable);
     let formattedCalendarTable = calendarTable;
 
     console.log({
@@ -79,6 +78,7 @@ const prompts = require("prompts");
         if (err) return console.log(err);
       }
     );
+
     await browser.close();
   } catch (e) {
     await browser.close();
