@@ -1,11 +1,36 @@
 {
   "name": "on-res-park",
   "version": "1.0.0",
-  "description": "Park reservation monitor",
+  "description": "On park reservation monitor",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cramk/on-res-park.git"
+  },
+  "keywords": [
+    "park",
+    "reservation",
+    "monitor",
+    "puppeteer",
+    "node",
+    "web"
+  ],
+  "author": "cramk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cramk/on-res-park/issues"
+  },
+  "homepage": "https://github.com/cramk/on-res-park#readme",
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "progress": "^2.0.3",
+    "prompts": "^2.4.0",
+    "puppeteer": "^7.1.0"
+  }
 }
