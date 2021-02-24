@@ -4,6 +4,7 @@
   "description": "On park reservation monitor",
   "main": "index.js",
   "scripts": {
+    "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -29,6 +30,7 @@
   },
   "dependencies": {
     "fs": "^0.0.1-security",
+    "html-table-to-json": "^1.0.0",
     "progress": "^2.0.3",
     "prompts": "^2.4.0",
     "puppeteer": "^7.1.0"
