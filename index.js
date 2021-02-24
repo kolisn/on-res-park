@@ -37,24 +37,6 @@ const prompts = require("prompts");
       console.log("Couldn't find #grid-table");
     }
 
-    await page.exposeFunction("parseSync", async (str) => {
-      return new Promise((resolve, reject) => {
-        var p = `%{INT:site},                                        %{TIMESTAMP_ISO8601:datestamp}                                        %{WORD:status}`;
-        const patterns = require("grok-js").loadDefaultSync();
-
-        const pattern = patterns.createPattern(p);
-        str = str.replace(/(\r\n|\n|\r)/gm, "");
-
-        const parse = pattern.parseSync(str);
-        console.log("Parse", str, parse);
-
-        return parse;
-        resolve(true);
-      });
-    });
-
-    let sites = {};
-
     const calendarTable = await page.evaluate(() => {
       let outArr = [];
       document.querySelectorAll("table#grid-table td").forEach((val) => {
@@ -63,20 +45,17 @@ const prompts = require("prompts");
         let labelTemp = label;
         let site = label.substring(0, label.indexOf(","));
         labelTemp = labelTemp.substring(labelTemp.indexOf(",") + 1).trim();
-        console.log("LabelTemp", labelTemp, site);
+
         let dateStr = labelTemp.substring(0, 19);
         let statusStr = labelTemp.substring(20).trim();
+
         let obj = {};
         obj.site = site;
         obj.date = dateStr;
         obj.status = statusStr;
-
-        /*  let obj = window.parseSync(label); */
         if (obj.site != "" && obj.dateStr != "" && obj.status != "") {
           outArr.push(obj);
         }
-        /*    console.log(obj.site, obj.datestamp, obj.status);
-        console.log(obj); */
       });
 
       return outArr;

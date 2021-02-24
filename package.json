@@ -30,7 +30,6 @@
   },
   "dependencies": {
     "fs": "^0.0.1-security",
-    "grok-js": "^3.3.1",
     "progress": "^2.0.3",
     "prompts": "^2.4.0",
     "puppeteer": "^7.1.0"
