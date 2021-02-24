@@ -6,14 +6,15 @@ const prompts = require("prompts");
 
 (async () => {
   const browser = await puppeteer.launch({
-    headless: false,
-    defaultViewport: null /* , args: [ "--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", ],  */,
+    /*     headless: false,
+    defaultViewport: null */
+    /* , args: [ "--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", ],  */
   });
   let data;
   try {
-    const outputFilename = "reservations.ontarioparks.com.json";
+    const outputFilename = "DEMO_OUTPUT.json";
     const page = await browser.newPage();
-    page.on("console", (msg) => console.log(msg.text()));
+    /*   page.on("console", (msg) => console.log(msg.text())); */
     await page.setDefaultNavigationTimeout(0);
     await page.goto(
       "https://reservations.ontarioparks.com/create-booking/results?resourceLocationId=-2147483601&mapId=-2147483432&searchTabGroupId=0&bookingCategoryId=0&startDate=2021-06-10&endDate=2021-06-01&nights=9&isReserving=true&equipmentId=-32768&subEquipmentId=-32768&partySize=1&searchTime=2021-02-23T20:14:50.983"
