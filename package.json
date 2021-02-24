@@ -20,7 +20,7 @@
     "web"
   ],
   "author": "cramk",
-  "license": "ISC",
+  "license": "apache-2.0",
   "bugs": {
     "url": "https://github.com/cramk/on-res-park/issues"
   },
@@ -30,7 +30,6 @@
   },
   "dependencies": {
     "fs": "^0.0.1-security",
-    "html-table-to-json": "^1.0.0",
     "progress": "^2.0.3",
     "prompts": "^2.4.0",
     "puppeteer": "^7.1.0"
