@@ -46,7 +46,7 @@ const prompts = require("prompts");
         let site = label.substring(0, label.indexOf(","));
         labelTemp = labelTemp.substring(labelTemp.indexOf(",") + 1).trim();
 
-        let dateStr = labelTemp.substring(0, 19);
+        let dateStr = labelTemp.substring(0, 19).trim();
         let statusStr = labelTemp.substring(20).trim();
 
         let obj = {};
