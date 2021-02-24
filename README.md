@@ -1,6 +1,10 @@
 # on-res-park
+<<<<<<< HEAD
 
  Park reservation monitor
+=======
+ Park reservation monitor to JSON
+>>>>>>> c5c069d6de18ccd8ac27c1e05f6e3e5ee702355e
 
 
 Instructions:
