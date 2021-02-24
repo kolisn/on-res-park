@@ -13,9 +13,10 @@ const prompts = require("prompts");
   try {
     const outputFilename = "reservations.ontarioparks.com.json";
     const page = await browser.newPage();
+    page.on("console", (msg) => console.log(msg.text()));
     await page.setDefaultNavigationTimeout(0);
     await page.goto(
-      "https://reservations.ontarioparks.com/create-booking/results?resourceLocationId=-2147483601&mapId=-2147483432&searchTabGroupId=0&bookingCategoryId=0&startDate=2021-08-12&endDate=2021-08-19&nights=7&isReserving=true&equipmentId=-32768&subEquipmentId=-32768&partySize=1&searchTime=2021-02-23T20:14:50.983"
+      "https://reservations.ontarioparks.com/create-booking/results?resourceLocationId=-2147483601&mapId=-2147483432&searchTabGroupId=0&bookingCategoryId=0&startDate=2021-06-12&endDate=2021-06-19&nights=7&isReserving=true&equipmentId=-32768&subEquipmentId=-32768&partySize=1&searchTime=2021-02-23T20:14:50.983"
     );
     await page.waitForSelector("#grid-view-button");
     await page.click("#grid-view-button");
@@ -26,6 +27,7 @@ const prompts = require("prompts");
     }
     const pageName = await page.evaluate(() => {
       const element = document.querySelector("#breadcrumb");
+
       return element?.textContent;
     });
     let formattedPageName = pageName;
@@ -35,20 +37,60 @@ const prompts = require("prompts");
       console.log("Couldn't find #grid-table");
     }
 
-    const calendarTable = await page.evaluate(() => {
-      const element = document.querySelector("#grid-table");
+    await page.exposeFunction("parseSync", async (str) => {
+      return new Promise((resolve, reject) => {
+        var p = `%{INT:site},                                        %{TIMESTAMP_ISO8601:datestamp}                                        %{WORD:status}`;
+        const patterns = require("grok-js").loadDefaultSync();
 
-      return element?.innerHTML;
+        const pattern = patterns.createPattern(p);
+        str = str.replace(/(\r\n|\n|\r)/gm, "");
+
+        const parse = pattern.parseSync(str);
+        console.log("Parse", str, parse);
+
+        return parse;
+        resolve(true);
+      });
     });
 
+    let sites = {};
+
+    const calendarTable = await page.evaluate(() => {
+      let outArr = [];
+      document.querySelectorAll("table#grid-table td").forEach((val) => {
+        let label = val.getAttribute("aria-label") ?? "";
+        label = label.replace(/(\r\n|\n|\r)/gm, "");
+        let labelTemp = label;
+        let site = label.substring(0, label.indexOf(","));
+        labelTemp = labelTemp.substring(labelTemp.indexOf(",") + 1).trim();
+        console.log("LabelTemp", labelTemp, site);
+        let dateStr = labelTemp.substring(0, 19);
+        let statusStr = labelTemp.substring(20).trim();
+        let obj = {};
+        obj.site = site;
+        obj.date = dateStr;
+        obj.status = statusStr;
+
+        /*  let obj = window.parseSync(label); */
+        if (obj.site != "" && obj.dateStr != "" && obj.status != "") {
+          outArr.push(obj);
+        }
+        /*    console.log(obj.site, obj.datestamp, obj.status);
+        console.log(obj); */
+      });
+
+      return outArr;
+    });
+
+    console.log("elements", calendarTable);
     let formattedCalendarTable = calendarTable;
 
     console.log({
-      pageName: formattedPageName,
+      location: formattedPageName,
       calendarTable: formattedCalendarTable,
     });
     data = {
-      pageName: formattedPageName,
+      location: formattedPageName,
       calendarTable: formattedCalendarTable,
     };
     fs.writeFile(
