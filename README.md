@@ -1,5 +1,5 @@
 # on-res-park
- Park reservation monitor
+ Park reservation monitor to JSON
 
 
 Instructions:
