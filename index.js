@@ -16,7 +16,7 @@ const prompts = require("prompts");
     page.on("console", (msg) => console.log(msg.text()));
     await page.setDefaultNavigationTimeout(0);
     await page.goto(
-      "https://reservations.ontarioparks.com/create-booking/results?resourceLocationId=-2147483601&mapId=-2147483432&searchTabGroupId=0&bookingCategoryId=0&startDate=2021-06-12&endDate=2021-06-19&nights=7&isReserving=true&equipmentId=-32768&subEquipmentId=-32768&partySize=1&searchTime=2021-02-23T20:14:50.983"
+      "https://reservations.ontarioparks.com/create-booking/results?resourceLocationId=-2147483601&mapId=-2147483432&searchTabGroupId=0&bookingCategoryId=0&startDate=2021-06-10&endDate=2021-06-01&nights=9&isReserving=true&equipmentId=-32768&subEquipmentId=-32768&partySize=1&searchTime=2021-02-23T20:14:50.983"
     );
     await page.waitForSelector("#grid-view-button");
     await page.click("#grid-view-button");
