@@ -3,7 +3,7 @@ const ProgressBar = require("progress");
 const prettier = require("prettier");
 const fs = require("fs");
 const prompts = require("prompts");
-const HtmlTableToJson = require('html-table-to-json');
+const HtmlTableToJson = require("html-table-to-json");
 (async () => {
   const browser = await puppeteer.launch({
     headless: false,
@@ -36,12 +36,14 @@ const HtmlTableToJson = require('html-table-to-json');
     }
 
     const calendarTable = await page.evaluate(() => {
-      const element = document.querySelector("#grid-table");
-  
+      const element = document.querySelector("#grid-table tbody");
+
       return element?.innerHTML;
     });
-    const jsonTables = HtmlTableToJson.parse(calendarTable)
+    const jsonTables = HtmlTableToJson.parse(calendarTable);
+    console.log(jsonTables);
     let formattedCalendarTable = jsonTables.results;
+    console.log("formatted", formattedCalendarTable);
     console.log({
       pageName: formattedPageName,
       calendarTable: formattedCalendarTable,
