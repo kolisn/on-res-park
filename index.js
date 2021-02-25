@@ -2,9 +2,7 @@ const puppeteer = require("puppeteer");
 const ProgressBar = require("progress");
 const prettier = require("prettier");
 const fs = require("fs");
-const prompts = require("prompts");
 const { program } = require("commander");
-const { start } = require("repl");
 
 program
   .version("1.0.0", "-v, --version")
