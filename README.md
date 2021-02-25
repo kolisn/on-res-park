@@ -4,19 +4,13 @@
 
 
 Instructions:
+To prepare the project:
+
 
 `npm install`
 
-To prepare the project
-
-`npm start` 
-
-- output true/false
-
-To run the module
-
-OR:
-
+To run the project
+`npm start` or `node index [options]`
 
 `node index [options]`
 
@@ -28,6 +22,10 @@ OR:
 `  -e, --end <YYYY/MM/DD>       End date: 2020/01/25`
 `  -o, --outputfile <FILENAME>  Filename/path`
 `  -h, --help                   display help for command*`
+
+
+- output true/false
+- found in package.json calls `"start": "node index --www 'https://reservations.ontarioparks.com/create-booking/results?resourceLocationId=-2147483538&mapId=-2147483176&searchTabGroupId=0&bookingCategoryId=0&startDate=2021-07-26&endDate=2021-08-03&nights=8&isReserving=true&equipmentId=-32768&subEquipmentId=-32768&partySize=1' --site 117,118,122 --start '2021/06/26' --end '2021/07/03' --outputfile 'demo.json'",`
 
 
 
