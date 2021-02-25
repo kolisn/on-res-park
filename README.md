@@ -1,6 +1,9 @@
 # on-res-park
 
- Park reservation monitor to JSON
+ Park Reservation Monitor to BOOL+/JSON
+ 
+ Enter ground url, site csv, start/end dates and find out if any of those sites are available for the entire range.
+ As a side-effect this handles scanning sites not currently in the calendar view.
 
 
 Instructions:
@@ -55,12 +58,12 @@ or
 
 Optional File Output:
 
-*{
-  "location": "Map of OntarioNear North ParksKillarneyGeorge Lake B & C",
-  "calendarTable": [
-    { "site": "35", "date": "Sat., Jun. 12, 2021", "status": "Available" },
-    { "site": "35", "date": "Sun., Jun. 13, 2021", "status": "Available" },
-    { "site": "35", "date": "Mon., Jun. 14, 2021", "status": "Available" },
-    { "site": "35", "date": "Tue., Jun. 15, 2021", "status": "Available" },
-    { "site": "35", "date": "Wed., Jun. 16, 2021", "status": "Available" }]
-}*
+`{`
+  `"location": "Map of OntarioNear North ParksKillarneyGeorge Lake B & C",`
+  `"calendarTable": [`
+    `{ "site": "35", "date": "Sat., Jun. 12, 2021", "status": "Available" },`
+    `{ "site": "35", "date": "Sun., Jun. 13, 2021", "status": "Available" },`
+    `{ "site": "35", "date": "Mon., Jun. 14, 2021", "status": "Available" },`
+    `{ "site": "35", "date": "Tue., Jun. 15, 2021", "status": "Available" },`
+    `{ "site": "35", "date": "Wed., Jun. 16, 2021", "status": "Available" }]`
+`}`
