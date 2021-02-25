@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "On park reservation monitor",
   "main": "index.js",
-  "scripts": { 
-    "start": "node index --www 'https://reservations.ontarioparks.com/create-booking/results?resourceLocationId=-2147483538&mapId=-2147483176&searchTabGroupId=0&bookingCategoryId=0&startDate=2021-06-26&endDate=2021-07-03&nights=8&isReserving=true&equipmentId=-32768&subEquipmentId=-32768&partySize=1' --site 115,118,122 --start '2021/06/26' --end '2021/07/03' --outputfile 'demo.json'",
+  "scripts": {
+    "start": "node index --www 'https://reservations.ontarioparks.com/create-booking/results?resourceLocationId=-2147483538&mapId=-2147483176&searchTabGroupId=0&bookingCategoryId=0&startDate=2021-06-26&endDate=2021-07-03&nights=8&isReserving=true&equipmentId=-32768&subEquipmentId=-32768&partySize=1' --site 1,2,117 --start '2021/06/26' --end '2021/07/03' --outputfile 'demo.json'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -32,7 +32,6 @@
     "commander": "^7.1.0",
     "fs": "^0.0.1-security",
     "progress": "^2.0.3",
-    "prompts": "^2.4.0",
     "puppeteer": "^7.1.0"
   }
 }
