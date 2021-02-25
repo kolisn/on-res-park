@@ -29,7 +29,7 @@ or
 
 `  -v, --version                output the version number`
 
-`  -w, --www <URL>              Campground URL`
+`  -w, --www '<URL>'              Campground URL`
 
 `  -s, --site <#1>,<#2>         Site numbers: 31,40,45`
 
