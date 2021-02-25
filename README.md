@@ -5,12 +5,35 @@
 
 Instructions:
 
-*npm install* to prepare the project
+`npm install`
 
-*npm start* to run the module
+to prepare the project
+
+`npm start` 
+
+- output true/false
+
+to run the module
+
+or:
 
 
-Output Like:
+`node index [options]`
+
+*Options:
+  -v, --version                output the version number
+  -w, --www <URL>              Campground URL
+  -s, --site <#1>,<#2>         Site numbers: 31,40,45
+  -b, --start <YYYY/MM/DD>     End date: 2020/01/20
+  -e, --end <YYYY/MM/DD>       End date: 2020/01/25
+  -o, --outputfile <FILENAME>  Filename/path
+  -h, --help                   display help for command*
+
+
+
+
+
+Optional File Output:
 
 *{
   "location": "Map of OntarioNear North ParksKillarneyGeorge Lake B & C",
