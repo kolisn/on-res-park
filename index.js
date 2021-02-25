@@ -154,7 +154,6 @@ function checkForAvailability(data, sites, startDate, endDate) {
 
     siteCheck[site] = {};
     let curDate = new Date(startDate);
-
     /* loop startDate -> endDate */
     while (curDate <= endDate) {
       let curEntry = siteData.find((siteDataRow) => {
@@ -174,7 +173,9 @@ function checkForAvailability(data, sites, startDate, endDate) {
     let siteStatusArr = Object.entries(siteObj).map((val) => val[1]);
     /* ensure EVERY date for this site available */
     siteArr.push(
-      siteStatusArr.every((siteStatus) => siteStatus == "Available")
+      siteStatusArr.every((siteStatus) => {
+        return siteStatus == "Available";
+      })
     );
   });
 
