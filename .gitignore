@@ -103,6 +103,9 @@ dist
 # TernJS port file
 .tern-port
 
+# VSCODE
+.vscode/
+
 #outputfile
 *.ontarioparks.com.json
 reservations.ontarioparks.com.json
