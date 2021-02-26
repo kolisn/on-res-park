@@ -70,7 +70,7 @@ Date.prototype.yyyymmdd = function () {
     const calendarTable = await page.evaluate(() => {
       let siteItem = [];
       document.querySelectorAll("table#grid-table td").forEach((val) => {
-        /* for each td elem, hopefully one containins SVG */
+        /* for each td elem, ideally one that contains the SVG */
         /* TODO check that td elem has svg child */
         let label = val.getAttribute("aria-label") ?? "";
         label = label.replace(/(\r\n|\n|\r)/gm, "");
@@ -144,7 +144,7 @@ function checkForAvailability(data, sites, startDate, endDate) {
 
   let siteCheck = {};
   sites.forEach((site) => {
-    let siteData = data.filter((val) => val.site == site);
+    let siteData = data.filter((siteItem) => siteItem.site == site);
     siteData.forEach((siteVal) => {
       siteVal.jsdate = new Date(siteVal.date);
     });
@@ -168,9 +168,11 @@ function checkForAvailability(data, sites, startDate, endDate) {
 
   /* perform availability check */
 
-  Object.keys(siteCheck).forEach((val) => {
-    let siteObj = siteCheck[val];
-    let siteStatusArr = Object.entries(siteObj).map((val) => val[1]);
+  Object.keys(siteCheck).forEach((siteItem) => {
+    let siteObj = siteCheck[siteItem];
+    let siteStatusArr = Object.entries(siteObj).map(
+      (date_status) => date_status[1]
+    );
     /* ensure EVERY date for this site available */
     siteArr.push(
       siteStatusArr.every((siteStatus) => {
@@ -180,5 +182,5 @@ function checkForAvailability(data, sites, startDate, endDate) {
   });
 
   /* check atleast one site has FULL DATE RANGE availability */
-  return siteArr.some((val) => val == true);
+  return siteArr.some((siteRangeStatus) => siteRangeStatus == true);
 }
