@@ -47,7 +47,9 @@ or
 - output true/false
 
 
-- `npm start` definition found in package.json calls `"start": "node index --www 'https://reservations.ontarioparks.com/create-booking/results?resourceLocationId=-2147483538&mapId=-2147483176&searchTabGroupId=0&bookingCategoryId=0&startDate=2021-06-26&endDate=2021-07-03&nights=8&isReserving=true&equipmentId=-32768&subEquipmentId=-32768&partySize=1' --site 117,118,122 --start '2021/06/26' --end '2021/07/03' --outputfile 'demo.json'",`
+- `npm start` definition found in package.json calls 
+
+`node index --www 'https://reservations.ontarioparks.com/create-booking/results?resourceLocationId=-2147483538&mapId=-2147483176&searchTabGroupId=0&bookingCategoryId=0&startDate=2021-06-26&endDate=2021-07-03&nights=8&isReserving=true&equipmentId=-32768&subEquipmentId=-32768&partySize=1' --site 117,118,122 --start '2021/06/26' --end '2021/07/03' --outputfile 'demo.json'`
 
 
 
