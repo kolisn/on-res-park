@@ -16,7 +16,7 @@ To prepare the project:
 
 
 
-To run the project
+To run the project:
 
 
 `npm start` 
